@@ -5,85 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Recommendation System - {{ current_category }}</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f3f3f3;
-        }
+    <title>Costumer over Product - {{ current_category }}</title>
 
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-        }
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #232f3e;
-            text-decoration: none;
-        }
-
-        .category-selector {
-            position: relative;
-            display: inline-block;
-        }
-
-        .category-button {
-            padding: 10px 20px;
-            background: #232f3e;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .category-dropdown {
-            display: none;
-            position: absolute;
-            right: 0;
-            background: white;
-            min-width: 200px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
-            max-height: 400px;
-            overflow-y: auto;
-            z-index: 1000;
-        }
-
-        .category-selector:hover .category-dropdown {
-            display: block;
-        }
-
-        .category-link {
-            display: block;
-            padding: 10px 20px;
-            text-decoration: none;
-            color: #232f3e;
-        }
-
-        .category-link:hover {
-            background: #f3f3f3;
-        }
-
-        .current-category {
-            background: #eaeded;
-        }
-
-        /* ... (rest of the previous CSS remains the same) ... */
-    </style>
 </head>
 
 <body>
     <div class="header">
-        <a href="{{ url_for('home') }}" class="logo">🏠 AmazonRec</a>
+        <a href="{{ url_for('home') }}" class="logo">🏠 CoP</a>
         <div class="category-selector">
             <button class="category-button">
                 {{ current_category.replace('_', ' ') }} ▼

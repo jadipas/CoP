@@ -1,0 +1,53 @@
+/* home.css */
+
+.product-grid {
+    display: grid;
+    /* Use grid layout */
+    grid-template-columns: repeat(4, 1fr);
+    /* Create 4 equal-width columns */
+    grid-template-rows: repeat(5, auto);
+    /* Create 5 rows with automatic height */
+    gap: 20px;
+    /* Space between grid items */
+    justify-items: center;
+    /* Center items horizontally */
+    align-items: start;
+    /* Align items to the top of each cell */
+    margin-top: 20px;
+}
+
+.product-card {
+    width: 100%;
+    max-width: 250px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    height: 100%;
+    /* Ensure the card takes the full height available */
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 3px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    /* Prevent the image from shrinking */
+}
+
+.product-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    padding: 10px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: auto;
+    /* Pushes the title to the bottom of the card */
+}
