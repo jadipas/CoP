@@ -1,0 +1,51 @@
+<!-- templates/product.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="product-container">
+    <div class="product-details">
+        <img src="{{ product.images['large'][0] if product.images and 'large' in product.images else 'https://via.placeholder.com/500' }}"
+            alt="{{ product.title }}" style="max-width: 500px; margin-bottom: 20px;">
+        <h1>{{ product.title }}</h1>
+        <div class="price">${{ "%.2f"|format(product.price) }}</div>
+        <div style="margin: 20px 0">
+            ⭐ {{ "%.1f"|format(product.average_rating) }} ({{ product.rating_number }} ratings)
+        </div>
+        
+        {% if product.features %}
+        <h2>Features</h2>
+        <ul>
+            {% for feature in product.features %}
+            <li>{{ feature }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        
+        {% if product.description %}
+        <h2>Description</h2>
+        {% for desc in product.description %}
+        <p>{{ desc }}</p>
+        {% endfor %}
+        {% endif %}
+        
+        {% if product.details %}
+        <h2>Product Details</h2>
+        <ul>
+            {% for key, value in product.details.items() %}
+            <li><strong>{{ key }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    
+    <div class="recommendations">
+        <h2>Recommended Products</h2>
+        {% for rec in recommendations %}
+        <a href="{{ url_for('product', parent_asin=rec.parent_asin) }}" class="recommendation-item">
+            <img src="{{ rec.images[0].thumb if rec.images else 'https://via.placeholder.com/50' }}" 
+                 alt="{{ rec.title }}">
+            <div>{{ rec.title }}</div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

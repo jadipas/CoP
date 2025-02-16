@@ -1,0 +1,13 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="product-grid">
+    {% for product in products %}
+    <a href="{{ url_for('product', parent_asin=product.parent_asin) }}" class="product-card">
+        <img src="{{ product.images['large'][0] if product.images and 'large' in product.images else 'https://via.placeholder.com/300' }}"
+            alt="{{ product.title }}">
+        <div class="product-title">{{ product.title }}</div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}
