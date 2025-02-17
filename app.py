@@ -136,7 +136,7 @@ def home():
     products = products_df.to_dict("records")
     random_products = random.sample(products, min(20, len(products)))
     random_products = [Product(p) for p in random_products]
-    
+
     return render_template(
         "home.html",
         products=random_products,
@@ -167,6 +167,9 @@ def product(parent_asin):
         [p for p in products if p["parent_asin"] != parent_asin],
         min(10, len(products) - 1),
     )
+
+    product = Product(product)
+    recommendations = [Product(p) for p in recommendations]
 
     return render_template(
         "product.html",

@@ -44,7 +44,7 @@
         <h2>Recommended Products</h2>
         {% for rec in recommendations %}
         <a href="{{ url_for('product', parent_asin=rec.parent_asin) }}" class="recommendation-item">
-            <img src="{{ rec.images[0].thumb if rec.images else 'https://via.placeholder.com/50' }}" 
+            <img src="{{ rec.images['thumb'][0] if rec.images else 'https://via.placeholder.com/50' }}" 
                  alt="{{ rec.title }}">
             <div>{{ rec.title }}</div>
         </a>
